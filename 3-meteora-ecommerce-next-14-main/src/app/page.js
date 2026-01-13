@@ -1,10 +1,9 @@
 import styles from "./page.module.css";
 import { Categorias } from "./components/Categorias";
 import { Produtos } from "./components/Produtos";
-import { getCategorias, getTodosProdutos } from "../lib/api";
 
 async function fetchProdutosApi() {
-  const res = await fetch('http://localhost:3000/api/produtos');
+  const res = await fetch('https://api.npoint.io/01b059af838f189a0632/produtos');
   if(!res.ok){
     throw new Error('Não foi possível obter os dados');
   }
@@ -13,9 +12,19 @@ async function fetchProdutosApi() {
   return produtos;
 }
 
+async function fetchCategoriasApi() {
+  const res = await fetch('https://api.npoint.io/5ad573596e9a751f0b6f/categorias');
+  if(!res.ok){
+    throw new Error('Não foi possível obter os dados');
+  }
+  const categorias = await res.json();
+
+  return categorias;
+}
+
 export default async function Home() {
-  const {produtos} = await fetchProdutosApi();
-  const categorias = getCategorias();
+  const produtos = await fetchProdutosApi();
+  const categorias = await fetchCategoriasApi();
 
   return (
     <>

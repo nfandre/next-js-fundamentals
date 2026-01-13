@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "server-client": "http-server" 
   },
   "dependencies": {
     "http-server": "^14.1.1",

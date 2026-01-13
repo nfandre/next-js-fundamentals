@@ -2,6 +2,8 @@
 
 ![](https://img.shields.io/github/license/alura-cursos/android-com-kotlin-personalizando-ui)
 
+https://www.npoint.io/
+
 # Meteora
 
 Uma aplicação que simula um e-commerce de produtos, onde contem a página inicial que lista todos os produtos e a página de detalhes de cada produto.
