@@ -4,5 +4,5 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ]
+, "../../packages/design-system/components/Text/index.test.tsx"  ]
 }

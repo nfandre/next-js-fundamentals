@@ -1,11 +1,15 @@
 module.exports = {
-  "extends": [
+  env: {
+    "jest/globals": true
+  },
+  extends: [
     "next",
     "eslint:recommended",
+    "plugin:jest/recommended",
     "plugin:prettier/recommended"
   ],
-  "rules": {
+  rules: {
     "no-console": "error",
-    "@next/next/no-html-for-pages": "off"
-  }
-}
+    "@next/next/no-html-link-for-pages": "off",
+  },
+};
