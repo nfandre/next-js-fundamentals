@@ -10,6 +10,9 @@ https://github.com/displaykit/responsive_styles
 
 https://flexboxfroggy.com/
 
+### repositorio base:
+https://github.com/alura-cursos/01-fullstack-nextjs
+
 ## commands
 
 yarn init -y 

@@ -9,7 +9,7 @@ export default function HomeScreen() {
   return (
     <Box
       tag="main"
-      styleSheet={{
+      $styleSheet={{
         backgroundColor: "grey",
         flex: 1,
         alignItems: "center"

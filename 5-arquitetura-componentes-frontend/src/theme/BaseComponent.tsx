@@ -4,7 +4,7 @@ import { StyleSheet } from "@src/theme/StyleSheet"
 import styled from "styled-components";
 
 interface StyledBaseComponent {
-  styleSheet?: StyleSheet;
+  $styleSheet?: StyleSheet;
 };
 
 const StyledBaseComponent = styled.div<StyledBaseComponent>`
@@ -12,18 +12,16 @@ const StyledBaseComponent = styled.div<StyledBaseComponent>`
   flex-direction: column;
   align-items: flex-start;
   flex-shrink: 0;
-  ${({ styleSheet }) => parseStyleSheet(styleSheet ?? {})}
+  ${({ $styleSheet }) => parseStyleSheet($styleSheet ?? {})}
 `;
 
 
 export const BaseComponent = (props: any) => {
-  console.log(props)
-
   return (
     <StyledBaseComponent {...props} />
   )
 };
 
 BaseComponent.defaultProps = {
-  styleSheet: {}
+  $styleSheet: {}
 };
