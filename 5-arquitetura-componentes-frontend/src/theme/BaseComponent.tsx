@@ -15,13 +15,17 @@ const StyledBaseComponent = styled.div<StyledBaseComponent>`
   ${({ $styleSheet }) => parseStyleSheet($styleSheet ?? {})}
 `;
 
-
-export const BaseComponent = (props: any) => {
+interface BaseComponentProps {
+  as: string;
+  $styleSheet?: StyleSheet;
+  [key: string]: any
+};
+const BaseComponent = React.forwardRef<unknown, BaseComponentProps>((props: any, ref) => {
   return (
-    <StyledBaseComponent {...props} />
+    <StyledBaseComponent {...props} ref={ref} />
   )
-};
+});
 
-BaseComponent.defaultProps = {
-  $styleSheet: {}
-};
+export default BaseComponent;
+
+

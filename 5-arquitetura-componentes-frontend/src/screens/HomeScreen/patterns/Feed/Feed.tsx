@@ -1,6 +1,7 @@
 import Box from "@src/components/Box/Box";
 import Icon from "@src/components/Icon/Icon";
 import Image from "@src/components/Image";
+import Link from "@src/components/Link/Link";
 import Text from "@src/components/Text/Text";
 
 interface FeedProps{
@@ -18,11 +19,11 @@ export default function Feed({children}: FeedProps) {
 
 Feed.Header = () => {
   return (
-    <Box $styleSheet={{
-      color: 'red'
-    }}>
+    <Box>
       <Image src="https://github.com/omariosouto.png" alt="imagem perfil"/>
-      <Icon name="youtube" />
+      <Link href="https://youtube.com">
+            <Icon name="youtube" />
+      </Link>
       <Icon name="twitter"/>
       <Icon name="instagram"/>
       <Icon name="github"/>

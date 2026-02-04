@@ -1,4 +1,4 @@
-import { BaseComponent } from "@src/theme/BaseComponent";
+import BaseComponent from "@src/theme/BaseComponent";
 import * as icons from './svgs/_index';
 
 const iconSizes = {
