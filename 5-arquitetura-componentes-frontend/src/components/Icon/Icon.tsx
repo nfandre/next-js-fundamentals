@@ -23,7 +23,7 @@ export default function Icon({ name, size, ...props }: IconProps) {
 
     <BaseComponent
       as="svg"
-      $styleSheet={{
+      styleSheet={{
         width: iconSizes[size],
         height: iconSizes[size],
       }}

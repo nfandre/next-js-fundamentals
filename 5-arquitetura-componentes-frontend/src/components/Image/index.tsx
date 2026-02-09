@@ -3,7 +3,7 @@ import BaseComponent from "@src/theme/BaseComponent";
 interface ImageProps {
   src: string;
   alt: string
-  $styleSheet?: StyleSheet
+  styleSheet?: StyleSheet
 }
 
 export default function Image({ src, alt, ...props }: ImageProps) {
@@ -12,7 +12,7 @@ export default function Image({ src, alt, ...props }: ImageProps) {
       as="img" 
       src={src} 
       alt={alt} {...props} 
-      $styleSheet={{
+      styleSheet={{
         width: '128px',
         height: '128px',
         borderRadius: '100%'

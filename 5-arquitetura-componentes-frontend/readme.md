@@ -24,3 +24,5 @@ npx gitignore node
 yarn add styled-components @types/styled-components
 
 yarn add @displaykit/responsive_styles
+
+ yarn add react-use-ripple

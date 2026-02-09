@@ -5,9 +5,9 @@ import { ColorsVariants, ThemeTypographyVariants } from '@src/theme/theme';
 import { useTheme } from '@src/theme/ThemeProvider';
 
 interface LinkProps {
-  href: string;
+  href?: string;
   children: React.ReactNode;
-  $styleSheet: StyleSheet;
+  styleSheet?: StyleSheet;
   variant?: ThemeTypographyVariants;
   colorVariant?: ColorsVariants;
   colorVariantEnabled?: boolean
@@ -19,11 +19,11 @@ const Link = React.forwardRef(({
   children,
   colorVariant = 'primary',
   colorVariantEnabled = true,
-  $styleSheet,
+  styleSheet,
   ...props
 }: LinkProps, ref) => {
 
-  const isInternalLink = href.startsWith('http');
+  const isInternalLink = href && href.startsWith('http');
   const theme = useTheme();
   const currentColorSet = {
     color: theme.colors[colorVariant].x500,
@@ -39,9 +39,9 @@ const Link = React.forwardRef(({
     ref,
     children,
     href,
-    $styleSheet: {
+    styleSheet: {
       textDecoration: 'none',
-      ...$styleSheet,
+      ...styleSheet,
       ...colorVariantEnabled && {
         color: currentColorSet.color,
       },
@@ -67,7 +67,7 @@ const Link = React.forwardRef(({
   }} />
 
   return (
-    <NextLink href={href} passHref>
+    <NextLink href={href ?? '/'} passHref>
       <Text {...linkProps} />
     </NextLink>
   )

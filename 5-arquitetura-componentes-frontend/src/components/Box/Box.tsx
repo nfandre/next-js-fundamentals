@@ -3,16 +3,16 @@ import { StyleSheet } from '@src/theme/StyleSheet';
 import React from 'react';
 
 interface BoxProps {
-  children?: React.ReactNode;
   tag?: 'main' | 'div' | 'article' | 'section' | 'ul' | string;
-  $styleSheet?: StyleSheet
+  children?: React.ReactNode;
+  styleSheet?: StyleSheet
 };
 
-export default function Box({ $styleSheet, children, tag, ...props }: BoxProps) {
+export default function Box({ styleSheet, children, tag, ...props }: BoxProps) {
   const Tag = tag || 'div';
 
   return (
-    <BaseComponent as={Tag} $styleSheet={$styleSheet} {...props}>
+    <BaseComponent as={Tag} styleSheet={styleSheet} {...props}>
       {children}
     </BaseComponent >
   );

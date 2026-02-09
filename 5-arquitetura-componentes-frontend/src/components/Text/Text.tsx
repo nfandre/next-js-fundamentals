@@ -3,16 +3,16 @@ import BaseComponent from "@src/theme/BaseComponent";
 import { useTheme } from "@src/theme/ThemeProvider";
 import React from "react";
 
-interface TextProps {
+interface TextProps extends React.HTMLAttributes<HTMLElement> {
   children: React.ReactNode;
-  tag: 'a' | 'p' | 'li' | 'h1' | string;
-  $styleSheet?: StyleSheet;
-  variant?: ThemeTypographyVariants
+  tag?: 'a' | 'p' | 'li' | 'h1' | string;
+  styleSheet?: StyleSheet;
+  variant?: ThemeTypographyVariants;
 }
 
 const Text = React.forwardRef(({
-  tag,
-  $styleSheet,
+  tag = 'p',
+  styleSheet,
   variant = "body2",
   ...props
 }: TextProps, ref) => {
@@ -22,10 +22,10 @@ const Text = React.forwardRef(({
   return (
     <BaseComponent
       as={tag}
-      $styleSheet={{
+      styleSheet={{
         fontFamily: theme.typography.fontFamily,
         ...textVariant,
-        ...$styleSheet
+        ...styleSheet
       }}
       ref={ref}
       {...props}
@@ -34,8 +34,3 @@ const Text = React.forwardRef(({
 });
 
 export default Text;
-
-Text.defaultProps = {
-  tag: 'p',
-  variant: 'body2'
-}
