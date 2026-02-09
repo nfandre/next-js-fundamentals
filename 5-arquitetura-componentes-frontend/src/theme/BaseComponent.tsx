@@ -2,9 +2,11 @@ import React from "react";
 import { parseStyleSheet } from "@displaykit/responsive_styles";
 import { StyleSheet } from "@src/theme/StyleSheet"
 import styled from "styled-components";
+import { css } from "styled-components";
+
 
 interface StyledBaseComponent {
-  styleSheet?: StyleSheet;
+  $styleSheet?: StyleSheet;
   ref: any;
 };
 
@@ -13,17 +15,19 @@ const StyledBaseComponent = styled.div<StyledBaseComponent>`
   flex-direction: column;
   align-items: flex-start;
   flex-shrink: 0;
-  ${({ styleSheet }) => parseStyleSheet(styleSheet ?? {})}
+  ${({ $styleSheet }) => css`${parseStyleSheet($styleSheet ?? {})}`}
 `;
 
 interface BaseComponentProps {
   as: string;
-  styleSheet?: StyleSheet;
+  styleSheet?: StyleSheet; // p
   [key: string]: any
 };
-const BaseComponent = React.forwardRef<unknown, BaseComponentProps>((props: any, ref) => {
+const BaseComponent = React.forwardRef<unknown, BaseComponentProps>(({ styleSheet, ...props }, ref) => {
   return (
-    <StyledBaseComponent  ref={ref}  {...props}/>
+    <StyledBaseComponent ref={ref}
+      $styleSheet={styleSheet} // ✅ transient, nunca chega no DOM
+      {...props} />
   )
 });
 
